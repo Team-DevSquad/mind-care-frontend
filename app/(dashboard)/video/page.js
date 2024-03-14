@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import AgoraUIKit from "agora-react-uikit";
 
 const VideoCallPage = () => {
-  const [videoCall, setVideoCall] = useState(true);
+  const [videoCall, setVideoCall] = useState(false);
 
   const callbacks = {
     EndCall: () => setVideoCall(false),
@@ -20,7 +20,12 @@ const VideoCallPage = () => {
       <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
     </div>
   ) : (
-    <h3 onClick={() => setVideoCall(true)}>Join</h3>
+    <button
+      className="px-2 py-1 bg-blue-500 text-white rounded-md"
+      onClick={() => setVideoCall(true)}
+    >
+      Join
+    </button>
   );
 };
 

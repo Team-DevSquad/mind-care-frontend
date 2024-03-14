@@ -47,7 +47,7 @@ const Hero = () => {
             />
           </svg>
         </label>
-        <nav
+        {/* <nav
           aria-label="Header Navigation"
           className="flex max-h-0 w-full flex-col items-center justify-between overflow-hidden transition-all peer-checked:mt-8 peer-checked:max-h-56 md:ml-24 md:max-h-full md:flex-row md:items-start"
         >
@@ -67,7 +67,7 @@ const Hero = () => {
               </button>
             </li>
           </ul>
-        </nav>
+        </nav> */}
       </header>
       <div className="mx-auto h-full px-4 py-20 md:py-36 sm:max-w-xl md:max-w-full md:px-24 lg:max-w-screen-xl lg:px-8">
         <div className="flex flex-col items-center justify-between lg:flex-row">
