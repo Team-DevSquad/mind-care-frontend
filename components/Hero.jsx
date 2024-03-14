@@ -24,7 +24,7 @@ const Hero = () => {
               />
             </svg>
           </span>
-          MediCare
+          MindCare
         </a>
         <input type="checkbox" className="peer hidden" id="navbar-open" />
         <label

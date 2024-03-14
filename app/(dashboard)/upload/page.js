@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 export default function Home() {
   const [file, setFile] = useState("");
@@ -97,6 +99,23 @@ export default function Home() {
     },
   ];
 
+  const imageFileChange = async (e) => {
+    console.log(e);
+    const data = new FormData();
+    data.append("file", e.target.files[0]);
+    const res = await axios.post(
+      "https://api.pinata.cloud/pinning/pinFileToIPFS",
+      data,
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_PINATA_JWT}`,
+        },
+      }
+    );
+    toast.success("Report added successfully");
+    console.log(res);
+  };
+
   return (
     <div className="flex gap-4 flex-wrap">
       {data.map((item, index) => {
@@ -116,17 +135,16 @@ export default function Home() {
                 <p>{item.email}</p>
               </div>
               <div>
-                <button
-                  onClick={handleButtonClick}
+                <label
+                  htmlFor="file"
                   className="mb-2 hover:text-black ml-40 bg-blue-500 btn text-white"
                 >
                   Add Report
-                </button>
+                </label>
                 <input
                   type="file"
                   id="file"
-                  ref={inputFile}
-                  onChange={handleFileChange}
+                  onChange={imageFileChange}
                   style={{ display: "none" }}
                 />
               </div>
@@ -135,11 +153,5 @@ export default function Home() {
         );
       })}
     </div>
-    // <main className="w-full min-h-screen m-auto flex flex-col justify-center items-center">
-    //   <input type="file" id="file" ref={inputFile} onChange={handleChange} />
-    //   <button disabled={uploading} onClick={() => inputFile.current.click()}>
-    //     {uploading ? "Uploading..." : "Upload"}
-    //   </button>
-    // </main>
   );
 }
