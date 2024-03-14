@@ -1,46 +1,46 @@
+"use client";
+import { useState } from "react";
+
 const AppointmentPage = () => {
+  const [state, setState] = useState(false);
+
   const tableItems = [
     {
       avatar:
         "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
       name: "Liam James",
       email: "liamjames@example.com",
-      phone_nimber: "+1 (555) 000-000",
-      position: "Software engineer",
-      salary: "$100K",
+      date: "2022-01-01",
+      time: "10:00 AM",
     },
     {
       avatar: "https://randomuser.me/api/portraits/men/86.jpg",
       name: "Olivia Emma",
       email: "oliviaemma@example.com",
-      phone_nimber: "+1 (555) 000-000",
-      position: "Product designer",
-      salary: "$90K",
+      date: "2022-01-01",
+      time: "10:00 AM",
     },
     {
       avatar: "https://randomuser.me/api/portraits/women/79.jpg",
       name: "William Benjamin",
       email: "william.benjamin@example.com",
-      phone_nimber: "+1 (555) 000-000",
-      position: "Front-end developer",
-      salary: "$80K",
+      date: "2022-01-01",
+      time: "10:00 AM",
     },
     {
       avatar: "https://api.uifaces.co/our-content/donated/xZ4wg2Xj.jpg",
       name: "Henry Theodore",
       email: "henrytheodore@example.com",
-      phone_nimber: "+1 (555) 000-000",
-      position: "Laravel engineer",
-      salary: "$120K",
+      date: "2022-01-01",
+      time: "10:00 AM",
     },
     {
       avatar:
         "https://images.unsplash.com/photo-1439911767590-c724b615299d?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ",
       name: "Amelia Elijah",
       email: "amelia.elijah@example.com",
-      phone_nimber: "+1 (555) 000-000",
-      position: "Open source manager",
-      salary: "$75K",
+      date: "2022-01-01",
+      time: "10:00 AM",
     },
   ];
 
@@ -85,25 +85,27 @@ const AppointmentPage = () => {
                     <span className="block text-base-content text-sm font-medium">
                       {item.name}
                     </span>
-                    <span className="block text-base-content text-xs">
+                    {/* <span className="block text-base-content text-xs">
                       {item.email}
-                    </span>
+                    </span> */}
                   </div>
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  {item.phone_nimber}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">{item.position}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{item.salary}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{item.email}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{item.date}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{item.time}</td>
                 <td className="text-right px-6 whitespace-nowrap">
                   <a
-                    href="javascript:void()"
+                    href=""
                     className="py-2 px-2 font-medium text-primary bg-blue-100 mr-2 hover:text-indigo-500 duration-150 hover:bg-gray-50 rounded-lg"
                   >
                     Accept
                   </a>
                   <button
-                    href="javascript:void()"
+                    href=""
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setState(true);
+                    }}
                     className="py-2 leading-none px-2 font-medium text-red-500 bg-red-200 hover:text-red-500 duration-150 hover:bg-gray-50 rounded-lg"
                   >
                     Reject
@@ -112,6 +114,59 @@ const AppointmentPage = () => {
               </tr>
             ))}
           </tbody>
+          {state ? (
+            <div className="fixed inset-0 z-10 ">
+              <div
+                className="fixed inset-0 w-full h-full bg-black opacity-40"
+                onClick={() => setState(false)}
+              ></div>
+              <div className="flex items-center min-h-screen px-4 py-8">
+                <div className="relative w-full max-w-lg mx-auto bg-white rounded-md shadow-lg">
+                  <div className="flex items-center justify-between p-4 border-b">
+                    <h4 className="text-lg font-medium text-gray-800">
+                      Issue Certificate
+                    </h4>
+                    <button
+                      className="p-2 text-gray-400 rounded-md hover:bg-gray-100"
+                      onClick={() => setState(false)}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-5 h-5 mx-auto"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div className="flex justify-center text-lg items-center my-4 ">
+                    Are you sure want to reject ?
+                  </div>
+                  <div className="flex gap-3 mb-5 ml-40">
+                    <button
+                      onClick={() => setState(false)}
+                      className="btn bg-green-500 hover:bg-green-600 px-6 text-white "
+                    >
+                      Yes
+                    </button>
+                    <button
+                      onClick={() => setState(false)}
+                      className="btn bg-red-500 px-6 hover:bg-red-600 text-white "
+                    >
+                      No
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
         </table>
       </div>
     </div>

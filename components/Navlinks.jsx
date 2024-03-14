@@ -5,6 +5,7 @@ const links = [
   { href: "/appointments", label: "Appointments" },
   { href: "/video", label: "Video Call" },
   { href: "/ratings", label: "Ratings" },
+  { href: "/upload", label: "Upload Docs" },
   { href: "/profile", label: "profile" },
 ];
 

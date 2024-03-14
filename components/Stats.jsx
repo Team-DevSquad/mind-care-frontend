@@ -3,7 +3,7 @@ import React from "react";
 const Stats = () => {
   return (
     <div className="m-10 grid gap-5 sm:grid-cols-3  mx-auto max-w-screen-lg">
-      <div className="px-4 py-6 shadow-lg">
+      <div className="px-4 bg-white rounded-md py-6 shadow-lg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-14 w-14 rounded-xl bg-blue-400 p-4 text-white"
@@ -19,7 +19,7 @@ const Stats = () => {
         </svg>
         <p className="mt-4 font-medium">Sessions</p>
         <p className="mt-2 text-xl font-medium">
-          23.4k
+          54
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="inline h-4 w-4"
@@ -37,7 +37,7 @@ const Stats = () => {
         </p>
         <span className="text-xs text-gray-400">+4.9%</span>
       </div>
-      <div className="px-4 py-6 shadow-lg">
+      <div className="px-4 bg-white rounded-md py-6 shadow-lg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-14 w-14 rounded-xl bg-rose-400 p-4 text-white"
@@ -52,7 +52,7 @@ const Stats = () => {
         </svg>
         <p className="mt-4 font-medium">Users</p>
         <p className="mt-2 text-xl font-medium">
-          23.4k
+          36
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="inline h-4 w-4"
@@ -70,7 +70,7 @@ const Stats = () => {
         </p>
         <span className="text-xs text-gray-400">+4.9%</span>
       </div>
-      <div className="px-4 py-6 shadow-lg">
+      <div className="px-4 bg-white rounded-md py-6 shadow-lg">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-14 w-14 rounded-xl bg-green-400 p-4 text-white"
@@ -87,7 +87,7 @@ const Stats = () => {
         </svg>
         <p className="mt-4 font-medium">Revenue</p>
         <p className="mt-2 text-xl font-medium">
-          $23.4k
+          $120
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="inline h-4 w-4"
