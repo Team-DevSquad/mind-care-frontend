@@ -1,5 +1,5 @@
 import MemberProfile from "./MemberProfile";
-import NavLinks from "./NavLinks";
+import NavLinks from "./Navlinks";
 import SidebarHeader from "./SidebarHeader";
 
 const Sidebar = () => {
