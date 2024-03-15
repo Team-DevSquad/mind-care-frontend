@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import AgoraUIKit from "agora-react-uikit";
+import dynamic from "next/dynamic";
 
 const VideoCallPage = () => {
   const [videoCall, setVideoCall] = useState(false);
@@ -8,6 +9,10 @@ const VideoCallPage = () => {
   const callbacks = {
     EndCall: () => setVideoCall(false),
   };
+
+  const AgoraUIKit = dynamic(() => import("agora-react-uikit"), {
+    ssr: false,
+  });
 
   const rtcProps = {
     appId: "ced4e343c11f4cefb701f5c8ec2bf880",
