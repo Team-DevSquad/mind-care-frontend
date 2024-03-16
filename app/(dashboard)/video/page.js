@@ -3,12 +3,12 @@ import AgoraUIKit from "agora-react-uikit";
 import { useEffect, useState } from "react";
 
 const VideoCallPage = () => {
-  // const [isWindowDefined, setIsWindowDefined] = useState(false);
+  const [isWindowDefined, setIsWindowDefined] = useState(false);
   const [videoCall, setVideoCall] = useState(false);
 
-  // useEffect(() => {
-  //   setIsWindowDefined(typeof window !== "undefined");
-  // }, []);
+  useEffect(() => {
+    setIsWindowDefined(typeof window !== "undefined");
+  }, []);
 
   const callbacks = {
     EndCall: () => setVideoCall(false),
@@ -21,7 +21,7 @@ const VideoCallPage = () => {
       "007eJxTYJDJ/PjqzNQDVSfTM+c5PZd5XfHmavbCpIk3nvFvaprBbB+rwJCUapqWbJGanGqcZmliaG5qYWGUlGxoZphmkJJkaJiSHOf6NbUhkJHhdscPZkYGCATxeRgcCwryM/NKclPzSgwZGAB00iYz",
   };
 
-  return videoCall ? (
+  return (videoCall && isWindowDefined) ? (
     <div style={{ display: "flex", justifyContent: "center", height: "90vh" }}>
       <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
     </div>
