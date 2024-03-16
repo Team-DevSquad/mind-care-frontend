@@ -1,28 +1,29 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
+import AgoraUIKit from "agora-react-uikit";
+import { useEffect, useState } from "react";
 
 const VideoCallPage = () => {
+  // const [isWindowDefined, setIsWindowDefined] = useState(false);
   const [videoCall, setVideoCall] = useState(false);
+
+  // useEffect(() => {
+  //   setIsWindowDefined(typeof window !== "undefined");
+  // }, []);
 
   const callbacks = {
     EndCall: () => setVideoCall(false),
   };
 
-
-  const AgoraUIKit =
-    typeof window !== "undefined" && require("agora-react-uikit");
-
   const rtcProps = {
     appId: "ced4e343c11f4cefb701f5c8ec2bf880",
     channel: "Appointment1",
     token:
-      "007eJxTYMgNW7T7zCar0uTDix99Ot2i67HHIfHeljXhdb9mTDRhrN2owJCUapqWbJGanGqcZmliaG5qYWGUlGxoZphmkJJkaJiS7BnyMbUhkJHhVXw6CyMDBIL4PAyOBQX5mXklual5JYYMDABGUiVR",
+      "007eJxTYJDJ/PjqzNQDVSfTM+c5PZd5XfHmavbCpIk3nvFvaprBbB+rwJCUapqWbJGanGqcZmliaG5qYWGUlGxoZphmkJJkaJiSHOf6NbUhkJHhdscPZkYGCATxeRgcCwryM/NKclPzSgwZGAB00iYz",
   };
 
   return videoCall ? (
-    <div style={{ display: "flex", height: "100vh" }}>
-      {AgoraUIKit && <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />}
+    <div style={{ display: "flex", justifyContent: "center", height: "90vh" }}>
+      <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
     </div>
   ) : (
     <button
