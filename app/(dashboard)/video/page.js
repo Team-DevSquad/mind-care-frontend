@@ -21,18 +21,22 @@ const VideoCallPage = () => {
       "007eJxTYJDJ/PjqzNQDVSfTM+c5PZd5XfHmavbCpIk3nvFvaprBbB+rwJCUapqWbJGanGqcZmliaG5qYWGUlGxoZphmkJJkaJiSHOf6NbUhkJHhdscPZkYGCATxeRgcCwryM/NKclPzSgwZGAB00iYz",
   };
 
-  return (videoCall && isWindowDefined) ? (
-    <div style={{ display: "flex", justifyContent: "center", height: "90vh" }}>
-      <AgoraUIKit rtcProps={rtcProps} callbacks={callbacks} />
-    </div>
-  ) : (
-    <button
-      className="px-2 py-1 bg-blue-500 text-white rounded-md"
-      onClick={() => setVideoCall(true)}
-    >
-      Join
-    </button>
-  );
+  return isWindowDefined ? (
+    videoCall ? (
+      <div
+        style={{ display: "flex", justifyContent: "center", height: "90vh" }}
+      >
+        <AgoraUIKit rtcProps={rtcProps} />
+      </div>
+    ) : (
+      <button
+        className="px-2 py-1 bg-blue-500 text-white rounded-md"
+        onClick={() => setVideoCall(true)}
+      >
+        Join
+      </button>
+    )
+  ) : null;
 };
 
 export default VideoCallPage;
