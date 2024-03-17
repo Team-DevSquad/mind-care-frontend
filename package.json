@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.9",
+    "@ducanh2912/next-pwa": "^10.2.5",
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "agora-react-uikit": "^1.2.0",
