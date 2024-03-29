@@ -1,7 +1,7 @@
 "use client";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-
+var token = '';
 const VideoCallPage = () => {
   const [isWindowDefined, setIsWindowDefined] = useState(false);
   const [videoCall, setVideoCall] = useState(false);
@@ -18,11 +18,27 @@ const VideoCallPage = () => {
     ssr: false,
   });
 
+  async function fetchAppointmentToken(appointmentId) {
+    try {
+      const response = await fetch(`https://mindcare-app.onrender.com/api/appointments/${appointmentId}`);
+      const data = await response.json();
+      console.log(data);
+      console.log(data.payload[0].appointment_token)
+      token = data.payload[0].appointment_token;
+      return token;
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  }
+  const appointmentId = 1; // replace with your appointment id
+fetchAppointmentToken(appointmentId)
+  .then(token => console.log(token));
+  // console.log(token);
   const rtcProps = {
-    appId: "ced4e343c11f4cefb701f5c8ec2bf880",
-    channel: "Appointment1",
-    token:
-      "007eJxTYJDJ/PjqzNQDVSfTM+c5PZd5XfHmavbCpIk3nvFvaprBbB+rwJCUapqWbJGanGqcZmliaG5qYWGUlGxoZphmkJJkaJiSHOf6NbUhkJHhdscPZkYGCATxeRgcCwryM/NKclPzSgwZGAB00iYz",
+    appId: "be5fc8ece3f94175882bc161f0db11dc",
+    channel: "Appointment2",
+    token:token
+      // "007eJxTYJDJ/PjqzNQDVSfTM+c5PZd5XfHmavbCpIk3nvFvaprBbB+rwJCUapqWbJGanGqcZmliaG5qYWGUlGxoZphmkJJkaJiSHOf6NbUhkJHhdscPZkYGCATxeRgcCwryM/NKclPzSgwZGAB00iYz",
   };
 
   return isWindowDefined ? (
